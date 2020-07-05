@@ -1,0 +1,23 @@
+version: "2"
+services:
+   db:
+      image: mysql:latest
+      environment:
+         - MYSQL_ROOT_PASSWORD=rootpassword
+         - MYSQL_DATABASE=zego
+         - MYSQL_USER=zego
+         - MYSQL_PASSWORD=zego
+      ports:
+         - 3307:3307
+   web:
+      image: 7086a70f31b3
+      depends_on:
+         - db
+      ports:
+         - 9000:8081
+      environment:
+         - DATABASE_HOST=db
+         - DATABASE_USER=zego
+         - DATABASE_PASSWORD=zego
+         - DATABASE_NAME=zego
+         - DATABASE_PORT=3307
