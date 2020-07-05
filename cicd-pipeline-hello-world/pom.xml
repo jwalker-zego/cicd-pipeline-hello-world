@@ -73,6 +73,30 @@
            </execution>
          </executions>
        </plugin>
+       
+        <plugin>
+       	<groupId>com.spotify</groupId>
+         <artifactId>dockerfile-maven-plugin</artifactId>
+         <version>1.4.0</version>
+         <configuration>
+         	<repository>jrwalker2/${project.artifactId}</repository>
+         	<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+         	<tag>${project.version}</tag>
+         	<buildArgs>
+         		<JAR_FILE>target/cicd-pipeline-hello-world-0.0.1-SNAPSHOT.jar</JAR_FILE>
+         	</buildArgs>
+         </configuration>
+         <executions>
+         	<execution>
+         		<id>default</id>
+         		<phase>install</phase>
+         		<goals>
+         			<goal>build</goal>
+         			<goal>push</goal> 
+         		</goals>
+         	</execution>
+         </executions>
+       </plugin>
 	  </plugins>
 	</build>
 	
