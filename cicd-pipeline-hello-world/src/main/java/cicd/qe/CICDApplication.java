@@ -12,5 +12,3 @@ public class CICDApplication
 		SpringApplication.run(CICDApplication.class, args);
 	}
 }
-
-//https://www.youtube.com/watch?v=yc0T_emHRk0
