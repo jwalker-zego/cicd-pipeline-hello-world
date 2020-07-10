@@ -1,0 +1,14 @@
+version: "3"
+services:
+   db:
+      image: mongo:3.2.4
+      container_name: "db"
+      ports:
+         - 27017:27017
+      command: --smallfiles
+   web:
+      image: jrwalker2/cicd-pipeline-hello-world:0.0.1-SNAPSHOT
+      ports:
+         - 9000:8081
+      links:
+         - db
