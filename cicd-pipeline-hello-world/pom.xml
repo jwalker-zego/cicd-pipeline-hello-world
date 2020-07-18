@@ -162,7 +162,7 @@
                     </includes>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.10</version>
@@ -179,75 +179,7 @@
                     <repository>jrwalker2/${project.artifactId}</repository>
                     <contextDirectory>target</contextDirectory>
                 </configuration>
-            </plugin>
-	  
-	  
-	  
-	  
-<!-- 		<plugin>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-maven-plugin</artifactId>
-           <configuration>
-               <fork>true</fork>
-               <mainClass>${start-class}</mainClass>
-           </configuration>
-             <executions>
-               <execution>
-                 <goals>
-                   <goal>repackage</goal>
-                 </goals>
-               </execution>
-           </executions>
-       </plugin>
-       <plugin>
-         <artifactId>maven-assembly-plugin</artifactId>
-         <configuration>
-           <archive>
-             <manifest>
-               <addClasspath>true</addClasspath>
-               <mainClass>cicd.qe.CICDApplication</mainClass>
-             </manifest>
-           </archive>
-           <descriptorRefs>
-             <descriptorRef>jar-with-dependencies</descriptorRef>
-           </descriptorRefs>
-         </configuration>
-         <executions>
-           <execution>
-             <id>assemble-all</id>
-             <phase>package</phase>
-             <goals>
-               <goal>single</goal>
-             </goals>
-           </execution>
-         </executions>
-       </plugin> -->
-       
-       
-       <!-- Optional: Builds a docker image of the web app and deploys it to Docker Hub via maven -->
-        <!-- <plugin>
-       	<groupId>com.spotify</groupId>
-         <artifactId>dockerfile-maven-plugin</artifactId>
-         <version>1.4.0</version>
-         <configuration>
-         	<repository>jrwalker2/${project.artifactId}</repository>
-         	<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-         	<tag>${project.version}</tag>
-         	<buildArgs>
-         		<JAR_FILE>target/cicd-pipeline-hello-world-0.0.1-SNAPSHOT.jar</JAR_FILE>
-         	</buildArgs>
-         </configuration>
-         <executions>
-         	<execution>
-         		<id>default</id>
-         		<phase>install</phase>
-         		<goals>
-         			<goal>build</goal>
-         			<goal>push</goal> 
-         		</goals>
-         	</execution>
-         </executions>
-       </plugin> -->
+            </plugin> -->
 	  </plugins>
 	  
 	  
