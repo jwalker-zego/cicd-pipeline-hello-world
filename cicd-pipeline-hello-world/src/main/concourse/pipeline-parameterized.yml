@@ -1,0 +1,24 @@
+---
+resources:
+  - name: source-code
+    type: git
+    source:
+      uri: ((source-code-resource-uri)).git
+      branch: ((source-code-resource-branch))
+
+jobs:
+  - name: build
+    plan:
+      - get: source-code
+        trigger: true
+      - task: maven-build
+        config:
+           platform: linux
+           image_resource:
+              type: docker-image
+              source: {repository: maven, tag: 3.3.9-jdk-8}
+           inputs:
+              - name: source-code
+           run:
+              path: mvn
+              args: ["-f", "source-code/((java-project-folder-name))/pom.xml", "verify"]

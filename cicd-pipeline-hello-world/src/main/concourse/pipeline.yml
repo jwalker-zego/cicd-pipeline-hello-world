@@ -1,0 +1,24 @@
+---
+resources:
+  - name: source
+    type: git
+    source:
+      uri: https://github.com/jwalker-zego/cicd-pipeline-hello-world.git
+      branch: master
+
+jobs:
+  - name: build
+    plan:
+      - get: source
+        trigger: true
+      - task: maven-build
+        config:
+           platform: linux
+           image_resource:
+              type: docker-image
+              source: {repository: maven, tag: 3.3.9-jdk-8}
+           inputs:
+              - name: source
+           run:
+              path: mvn
+              args: ["-f", "source/cicd-pipeline-hello-world/pom.xml", "verify"]
